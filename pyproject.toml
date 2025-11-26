@@ -1,0 +1,45 @@
+[project]
+name = "panda-factor-workspace"
+version = "0.1.0"
+description = "PandaAI Quantitative Factor Library"
+readme = "README.md"
+license = "GPL-3.0"
+requires-python = ">=3.12"
+dependencies = [
+    "panda-common",
+    "panda-data",
+    "panda-data-hub",
+    "panda-factor",
+    "panda-factor-server",
+    "panda-llm",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.3.1",
+    "pytest-asyncio>=0.21.0",
+    "httpx>=0.24.0",
+    "ipython>=8.12.0",
+]
+
+[tool.uv.workspace]
+members = [
+    "panda_common",
+    "panda_data",
+    "panda_data_hub",
+    "panda_factor",
+    "panda_factor_server",
+    "panda_llm",
+]
+
+[tool.uv.sources]
+panda-common = { workspace = true }
+panda-data = { workspace = true }
+panda-data-hub = { workspace = true }
+panda-factor = { workspace = true }
+panda-factor-server = { workspace = true }
+panda-llm = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -1,0 +1,32 @@
+[project]
+name = "panda-llm"
+version = "0.1.0"
+description = "LLM integration service for PandaFactor"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.104.1",
+    "uvicorn>=0.24.0",
+    "pydantic>=2.4.2",
+    "aiohttp>=3.9.1",
+    "pyyaml>=6.0.1",
+    "python-dotenv>=1.0.0",
+    "openai>=1.0.0",
+    "panda-common",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.3.1",
+    "pytest-asyncio>=0.21.0",
+    "httpx>=0.24.0",
+]
+
+[project.scripts]
+panda-llm = "panda_llm.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["panda_llm"]
